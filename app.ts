@@ -1,4 +1,7 @@
 import * as express from 'express';
+import * as multer from 'multer';
+
+const upload = multer({ dest: 'uploads/' });
 
 const app = express();
 const port = 3000;
@@ -60,6 +63,12 @@ app.delete('/users/:id', (req, res) => {
   const { id } = req.params;
   fakeDB.users = fakeDB.users.filter((i) => i.id !== id);
   res.send(`user with id "${id}" successfully deleted`);
+});
+
+app.post('/upload', upload.single('avatar'), (req) => {
+  // req.file is the `avatar` file
+  console.log(req.file);
+  // req.body will hold the text fields, if there were any
 });
 
 app.listen(port, () => {
