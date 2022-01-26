@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as multer from 'multer';
+import * as cors from 'cors';
 
 const upload = multer({ dest: 'uploads/' });
 
@@ -8,6 +9,8 @@ const port = 3000;
 
 // Поддержка json body
 app.use(express.json());
+
+app.use(cors());
 
 const fakeDB = {
   users: [
@@ -55,6 +58,7 @@ app.post('/users/:id', (req, res) => {
     res.status(500).send({ error: 'User not found' });
     return;
   }
+  // console.log(req.body);
   fakeDB.users[index] = { ...fakeDB.users[index], ...req.body };
   res.send(fakeDB.users[index]);
 });
