@@ -50,7 +50,7 @@ app.get('/users/:id', (req, res) => {
   res.send(fakeDB.users.find((i) => i.id === id));
 });
 
-app.post('/users/:id', (req, res) => {
+app.put('/users/:id', (req, res) => {
   const { id } = req.params;
   const index = fakeDB.users.findIndex((i) => i.id === id);
   if (index === -1) {
@@ -61,6 +61,24 @@ app.post('/users/:id', (req, res) => {
   // console.log(req.body);
   fakeDB.users[index] = { ...fakeDB.users[index], ...req.body };
   res.send(fakeDB.users[index]);
+});
+
+app.patch('/users/:id', (req, res) => {
+  const { id } = req.params;
+  const index = fakeDB.users.findIndex((i) => i.id === id);
+  if (index === -1) {
+    // Сомневаюсь, что это хорошая практика https://expressjs.com/en/guide/error-handling.html
+    res.status(500).send({ error: 'User not found' });
+    return;
+  }
+  // console.log(req.body);
+  fakeDB.users[index] = { ...fakeDB.users[index], name: req.body?.name };
+  res.send(fakeDB.users[index]);
+});
+
+app.post('/users', (req, res) => {
+  fakeDB.users.push({ ...req.body, id: Math.random().toString(16) });
+  res.send(fakeDB.users[fakeDB.users.length - 1]);
 });
 
 app.delete('/users/:id', (req, res) => {
