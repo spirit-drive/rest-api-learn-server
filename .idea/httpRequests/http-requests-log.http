@@ -1,0 +1,87 @@
+GET http://localhost:3000/users
+
+<> 2023-03-31T183506.200.json
+
+###
+
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+  "name": "Name",
+  "email": "email"
+}
+
+<> 2023-03-31T183459.200.json
+
+###
+
+GET http://localhost:3000
+
+<> 2023-03-31T183316.200.html
+
+###
+
+GET http://localhost:3000/users
+
+<> 2023-03-31T183257.200.json
+
+###
+
+GET http://localhost:3000/users/1
+
+<> 2023-03-31T183249.200.json
+
+###
+
+GET http://localhost:3000/users/1
+Content-Type: application/json
+
+<> 2023-03-31T183243.200.json
+
+###
+
+GET http://localhost:3000/users
+Content-Type: application/json
+
+<> 2023-03-31T183218.200.json
+
+###
+
+GET http://localhost:3000/users
+Content-Type: application/json
+
+<> 2023-03-31T183208.200.json
+
+###
+
+GET http://localhost:3000/users
+
+<> 2022-10-12T173005.200.json
+
+###
+
+GET http://localhost:3000/users
+
+<> 2022-04-29T194359.200.json
+
+###
+
+GET http://localhost:3000/users
+
+<> 2022-04-29T184909.200.json
+
+###
+
+GET http://localhost:3000/users/1
+
+<> 2022-04-29T184902.200.json
+
+###
+
+GET http://localhost:3000/users
+
+<> 2022-04-29T184842.200.json
+
+###
+
